@@ -130,7 +130,7 @@ bar {
 # window rules, you can find the window class using xprop
 for_window [class=".*"] border pixel 4
 assign [class=kitty] T
-assign [class=Firefox|Transmission-gtk] W
+assign [class=Firefox|qutebrowser] W
 assign [class=Thunar|File-roller] T
 assign [class=Discord|Telegram|Gucharmap|Soffice|libreoffice*] C
 assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] N
