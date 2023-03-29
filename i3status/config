@@ -11,7 +11,7 @@ general {
 order += "memory"
 order += "load"
 #order += "cpu_temperature 0"
-order += "disk /"
+#order += "disk /"
 order += "disk /home"
 #order += "ethernet enp1s0"
 order += "wireless wlp0s20f3"
@@ -37,12 +37,12 @@ disk "/home" {
 }
 
 ethernet enp1s0 {
-        format_up = "<span background='#88c0d0'> %ip </span>"
+        format_up = "<span background='#88c0d0'> %ip (%speed)</span>"
         format_down = "<span background='#88c0d0'>  Disconnected </span>"
 }
 
 wireless wlp0s20f3 {
-        format_up = "<span background='#b48ead'>   %essid </span>"
+        format_up = "<span background='#b48ead'>   (%quality at %essid, %bitrate) %ip </span>"
         format_down = "<span background='#b48ead'>   Disconnected </span>"
 }
 
@@ -55,7 +55,7 @@ volume master {
 }
 
 memory {
-        format = "<span background='#f0d41d'>   %used </span>"
+        format = "<span background='#f0d41d'>   %percentage_used used, %percentage_shared shared </span>"
         threshold_degraded = "10%"
         format_degraded = "MEMORY: %free"
 }
@@ -63,12 +63,12 @@ memory {
 
 battery 1 {
 	last_full_capacity = true
-        format = "<span background='#a3be8c'>   %status %percentage </span>"
+        format = "<span background='#a3be8c'> %status %percentage %remaining</span>"
         format_down = "No Battery"
-        status_chr = "Charging"
-        status_bat = "Battery"
-        status_unk = "Unknown"
-        status_full = "Charged"
+        status_chr = "⚡Charging"
+        status_bat = " Battery"
+        status_unk = "? Unknown"
+        status_full = " Charged"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
 }
